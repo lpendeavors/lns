@@ -1,0 +1,74 @@
+<div class="top-bar">
+  <div class="top-bar-brand">
+    <a [routerLink]="['/dashboard/home']">
+      <img src="http://placehold.it/150x50" />
+    </a>
+  </div>
+  <div class="top-bar-list">
+    <div class="top-bar-item px-2 d-md-none d-lg-none d-xl-none">
+      <button class="hamburger hamburger-squeeze" type="button" data-toggle="aside" aria-label="toggle menu">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+    <div class="top-bar-item top-bar-item-full">
+      <!-- <ul class="nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Campaigns</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/contacts/all']">Contacts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Messages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Conversations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Reviews</a>
+        </li>
+      </ul> -->
+    </div>
+    <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+      <ul class="header-nav nav">
+        <li class="nav-item dropdown header-nav-dropdown has-notified">
+          <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-chart-line"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown header-nav-dropdown has-notified">
+          <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="dropdown" dropdown>
+        <button dropdownToggle class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="user-avatar user-avatar-md">
+            <img src="http://placehold.it/100x100" alt>
+          </span>
+          <span class="account-summary pr-lg-4 d-none d-lg-block">
+            <span class="account-name">Beni Arisandi</span>
+            <span class="account-description">Admin</span>
+          </span>
+        </button>
+        <!-- <div class="dropdown-arrow dropdown-arrow-left"></div> -->
+        <div *dropdownMenu class="dropdown-menu" style="position: absolute; will-change: top, left; top: 56px; left: 0px;">
+          <h6 class="dropdown-header d-none d-md-block d-lg-none">Beni Arisandi</h6>
+          <a [routerLink]="['/settings']" class="dropdown-item">
+            <i class="dropdown-icon fas fa-cog"></i>
+            Settings
+          </a>
+          <a (click)="auth.logout()" class="dropdown-item">
+            <i class="dropdown-icon fas fa-sign-out-alt"></i>
+            Sign out
+          </a>
+          <div class="dropdown-divider"></div>
+          <a [routerLink]="['/help']" class="dropdown-item">Help Center</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

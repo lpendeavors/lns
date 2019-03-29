@@ -1,0 +1,80 @@
+<div class="wrapper">
+  <div class="page">
+    <div class="page-inner">
+      <header class="page-title-bar">
+        <div class="d-flex justify-content-between">
+          <h1 class="page-title">Campaigns</h1>
+          <div class="btn-toolbar">
+            <a class="btn btn-link" [routerLink]="['/campaigns/new']">
+              <i class="fas fa-plus"></i> Add
+            </a>&nbsp;&nbsp;
+            <a class="btn btn-link" href="#">
+              <i class="fas fa-print"></i> Print
+            </a>
+          </div>
+        </div>
+      </header>
+      <div class="page-section">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card card-fluid">
+              <div class="card-body">
+                <div class="media align-items-center mb-3">
+                  <a class="user-avatar user-avatar-lg mr-3">
+                    <i class="fas fa-project-diagram text-muted"></i>
+                  </a>
+                  <div class="media-body">
+                    <h3 class="card-title">
+                      <a [routerLink]="['/campaigns/1']">First Campaign</a>
+                    </h3>
+                    <h6 class="card-subtitle">Event Promotion</h6>
+                  </div>
+                  <a [routerLink]="['/conversations/all']">
+                    <i class="fas fa-comments fa-2x"></i>
+                  </a>
+                </div>
+                <p class="text-muted">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <hr>
+                <p class="rating rating-sm">
+                  <i class="fas fa-star text-yellow"></i>
+                  <i class="fas fa-star text-yellow"></i>
+                  <i class="fas fa-star text-yellow"></i>
+                  <i class="fas fa-star text-yellow"></i>
+                  <i class="far fa-star text-yellow"></i>
+                </p>
+                <ul class="list-icons mb-3">
+                  <li class="text-muted">
+                    <span class="list-icon mb-3">
+                      <i class="fas fa-map-marker text-muted"></i>
+                    </span>
+                    Houston
+                  </li>
+                  <li class="text-muted">
+                    <span class="list-icon">
+                      <i class="fas fa-calendar text-muted"></i>
+                    </span>
+                    Feb 14, 2019
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <a class="card-footer-item card-footer-item-bordered">
+                  <strong>135</strong>
+                  <span class="d-block">Contacts</span>
+                </a>
+                <a class="card-footer-item card-footer-item-bordered">
+                  <strong>78</strong>
+                  <span class="d-block">Messages</span>
+                </a>
+                <a class="card-footer-item card-footer-item-bordered">
+                  <strong>58%</strong>
+                  <span class="d-block">Responses</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,134 @@
+<div class="wrapper">
+  <div class="page has-sidebar" [ngClass]="{ 'has-sidebar-open': !sidebarCollapsed }">
+    <div class="sidebar-backdrop" (click)="toggleSidebar()"></div>
+    <header class="page-navs shadow-sm pr-3">
+      <div class="account-summary">
+        <h5>First Campaign <small class="text-muted">Last Update 1h</small></h5>
+      </div>
+      <div class="ml-auto">
+        <button class="btn btn-link" (click)="toggleSidebar()">
+          <i class="fas fa-angle-double-left"></i>
+        </button>
+      </div>
+    </header>
+    <div class="page-inner">
+      <header class="page-title-bar">
+        <div class="row text-center text-sm-left">
+          <div class="col-sm-auto col-12 mb-2">
+            <span class="tile tile-xl bg-pink">FC</span>
+          </div>
+          <div class="col">
+            <h1 class="page-title">Event Promotion</h1>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+      </header>
+      <div class="page-section">
+        <div class="section-block">
+          <div class="metric-row">
+            <div class="col">
+              <div class="metric metric-bordered">
+                <h2 class="metric-label">Contacts</h2>
+                <p class="metric-value h1">
+                  <sup></sup>
+                  <span class="value">124</span>
+                </p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="metric metric-bordered">
+                <h2 class="metric-label">Messages</h2>
+                <p class="metric-value h1">
+                  <sup></sup>
+                  <span class="value">205</span>
+                </p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="metric metric-bordered">
+                <h2 class="metric-label">Responses</h2>
+                <p class="metric-value h1">
+                  <sup></sup>
+                  <span class="value">46</span>
+                </p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="metric metric-bordered">
+                <h2 class="metric-label">Engagement %</h2>
+                <p class="metric-value h1">
+                  <span class="value">22</span>
+                  <sup></sup>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-deck">
+          <div class="card card-fluid">
+            <div class="card-body">
+              <h3 class="card-title">Activity by day</h3>
+              <div></div>
+            </div>
+          </div>
+          <div class="card card-fluid">
+            <div class="card-body">
+              <h3 class="card-title">Contributors</h3>
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header border-0">Response Tracking</div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Response</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="align-middle text-truncate">
+                    <a href="#">Sent SMS Messages</a>
+                  </td>
+                  <td class="align-middle">2/14/2019</td>
+                  <td class="align-middle">12:20pm</td>
+                  <td class="align-middle text-danger">15%</td>
+                  <td class="align-middle text-right">
+                    <a><i class="fas fa-ellipsis-h"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="card-footer-item">
+              View Report
+              <i class="fas fa-fw fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page-sidebar" [collapse]="sidebarCollapsed">
+      <ul class="nav nav-tabs nav-fill">
+        <li class="nav-item">
+          <a class="nav-link active">Activity</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Notes</a>
+        </li>
+      </ul>
+      <div class="sidebar-section-fill">
+        <div class="tab-content">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

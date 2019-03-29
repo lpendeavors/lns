@@ -1,0 +1,108 @@
+<div class="wrapper">
+  <div class="page">
+    <nav class="page-navs">
+      <div class="nav-controller">
+        <div class="nav nav-tabs">
+          <a href="#" class="nav-link active">All (1)</a>
+          <a href="#" class="nav-link">Starred</a>
+          <a href="#" class="nav-link">Trash</a>
+        </div>
+      </div>
+    </nav>
+    <div class="page-inner">
+      <header class="page-title-bar">
+        <div class="d-flex justify-content-between">
+          <div class="d-md-inline-block">
+            <div class="input-group input-group-alt">
+              <div class="input-group">
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i class="fas fa-search"></i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search messages">
+              </div>
+              <div class="input-group-append">
+                <select class="custom-select">
+                  <option selected>Filter By</option>
+                  <option value="1">Group</option>
+                  <option value="2">Segment</option>
+                  <option value="3">Agent</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-success d-none d-sm-inline-block">New Conversation</button>
+        </div>
+      </header>
+      <div class="page-section">
+        <div class="card">
+          <div class="list-group list-group-messages list-group-flush list-group-bordered">
+            <div class="list-group-item unread">
+              <div class="list-group-item-figure">
+                <span class="rating rating-sm mr-3">
+                  <input type="checkbox" id="star1" value="1">
+                  <label for="star1">
+                    <span class="fas fa-star"></span>
+                  </label>
+                </span>
+              </div>
+              <div class="list-group-item-body pl-md-2">
+                <div class="row">
+                  <div class="col-12 col-lg-3 d-none d-lg-block">
+                    <h4 class="list-group-item-title text-truncate">
+                      Test Contact
+                    </h4>
+                    <p class="list-group-item-text">2 hours ago</p>
+                  </div>
+                  <div class="col-12 col-lg-9">
+                    <h4 class="list-group-item-title text-truncate">
+                      <a [routerLink]="['/conversations/1']">Event SMS Template</a>
+                    </h4>
+                    <p class="list-group-item-text text-truncate">
+                      I would love to buy whatever you're selling because LNS is the truth.
+                    </p>
+                  </div>
+                  <div class="col-12 d-lg-none">
+                    <p class="list-group-item-text">2 hours ago</p>
+                  </div>
+                </div>
+              </div>
+              <div class="list-group-item-figure">
+                <div dropdown class="dropdown">
+                  <a dropdownToggle>
+                    <i class="fas fa-ellipsis-h"></i>
+                  </a>
+                  <div *dropdownMenu class="dropdown-menu dropdown-menu-right">
+                    <a href="#" class="dropdown-item">Mark as read</a>
+                    <a href="#" class="dropdown-item">Mark as unread</a>
+                    <a href="#" class="dropdown-item">Toggle Star</a>
+                    <a href="#" class="dropdown-item">Trash</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-block">
+          <p class="text-muted">Showing 1 to 1 of 1 entries</p>
+          <ul class="pagination justify-content-center mb-5 mb-sm-5">
+            <li class="page-item disabled">
+              <a class="page-link" href="#">
+                <i class="fas fa-angle-left"></i>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item disabled">
+              <a class="page-link" href="#">
+                <i class="fas fa-angle-right"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

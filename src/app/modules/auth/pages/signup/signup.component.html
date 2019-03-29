@@ -1,0 +1,52 @@
+<main class="auth">
+  <header id="auth-header" class="auth-header">
+    <h1>Lift N Shift</h1>
+    <p>
+      Already have an account? please
+      <a [routerLink]="['/auth/login']">Sign In</a>
+    </p>
+  </header>
+  <form [formGroup]="signupForm" (submit)="signup()" class="auth-form">
+    <div class="form-group">
+      <div class="form-label-group">
+        <input type="text" formControlName="company" id="lnsCompany" class="form-control placeholder-shown" placeholder="Company" autofocus>
+        <small id="companyHelp" [hidden]="!signupForm.controls['company'].touched || signupForm.controls['company'].valid" class="form-text text-danger">A company name is required</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-label-group">
+        <input type="email" formControlName="email" id="lnsEmail" class="form-control placeholder-shown" placeholder="Email" autocomplete="email">
+        <small id="emailHelp" [hidden]="!signupForm.controls['email'].touched || signupForm.controls['email'].valid" class="form-text text-danger">A valid email address is required</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-label-group">
+        <input type="password" formControlName="password" id="lnsPassword" class="form-control placeholder-shown" placeholder="Password" autocomplete="new-password">
+        <small id="emailHelp" [hidden]="!signupForm.controls['password'].touched || signupForm.controls['password'].valid" class="form-text text-danger">A password is required</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-label-group">
+        <input type="password" formControlName="passwordConfirm" id="lnsPassword2" class="form-control placeholder-shown" placeholder="Confirm Password" autocomplete="new-password">
+        <small id="emailHelp" [hidden]="!signupForm.controls['passwordConfirm'].touched || passwordsMatch" class="form-text text-danger">Passwords must match</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <button [disabled]="!passwordsMatch || !signupForm.valid" class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+    </div>
+    <div class="form-group">
+      <div class="custom-control custom-control-inline custom-checkbox">
+        <input type="checkbox" formControlName="emailNotifications" class="custom-control-input" id="lnsNotifications">
+        <label class="custom-control-label" for="lnsNotifications">
+          Sign me up for email notifications
+        </label>
+      </div>
+    </div>
+    <p class="text-center text-muted mb-0">
+      By creating an account you agree to the 
+      <a [routerLink]="['/terms']">Terms of Use</a>
+      and 
+      <a [routerLink]="['/privacy']">Privacy Policy</a>
+    </p>
+  </form><br><br>
+</main>

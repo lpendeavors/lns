@@ -1,0 +1,67 @@
+<aside class="app-aside app-aside-expand-md app-aside-light">
+    <div class="aside-content">
+        <header class="aside-header d-block d-md-none">
+            
+        </header>
+        <div class="aside-menu overflow-hidden ps">
+            <nav id="stacked-menu" class="stacked-menu stacked-menu-has-collapsible">
+                <ul class="menu">
+                    <li routerLinkActive="has-active" [routerLinkActiveOptions]="{exact: true}" class="menu-item">
+                        <a [routerLink]="['/dashboard']" class="menu-link">
+                            <i class="menu-icon fas fa-home"></i>
+                            <span class="menu-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li routerLinkActive="has-active" class="menu-item">
+                        <a [routerLink]="['/contacts/all']" class="menu-link">
+                            <i class="menu-icon fas fa-address-book"></i>
+                            <span class="menu-text">Contacts</span>
+                        </a>
+                    </li>
+                    <li routerLinkActive="has-active" class="menu-item">
+                        <a [routerLink]="['/groups/home']" class="menu-link">
+                            <i class="menu-icon fas fa-user-friends"></i>
+                            <span class="menu-text">Groups</span>
+                        </a>
+                    </li>
+                    <li routerLinkActive="has-active" class="menu-item">
+                        <a [routerLink]="['/segments/home']" class="menu-link">
+                            <i class="menu-icon fas fa-layer-group"></i>
+                            <span class="menu-text">Segments</span>
+                        </a>
+                    </li>
+                    <li routerLinkActive="has-active" class="menu-item">
+                        <a [routerLink]="['/messages/home']" class="menu-link">
+                            <i class="menu-icon fas fa-sticky-note"></i>
+                            <span class="menu-text">Messages</span>
+                        </a>
+                    </li>
+                    <li routerLinkActive="has-active" class="menu-item">
+                        <a [routerLink]="['/campaigns/all']" class="menu-link">
+                            <i class="menu-icon fas fa-project-diagram"></i>
+                            <span class="menu-text">Campaigns</span>
+                        </a>
+                    </li>
+                    <li routerLinkActive="has-active" class="menu-item">
+                        <a [routerLink]="['/conversations/all']" class="menu-link">
+                            <i class="menu-icon fas fa-comment-dots"></i>
+                            <span class="menu-text">Conversations</span>
+                        </a>
+                    </li>
+                    <!-- <li routerLinkActive="has-active" class="menu-item">
+                        <a [routerLink]="['/reviews']" class="menu-link">
+                            <i class="menu-icon fas fa-comments-dollar"></i>
+                            <span class="menu-text">Reviews</span>
+                        </a>
+                    </li> -->
+                    <li routerLinkActive="has-active" class="menu-item">
+                        <a [routerLink]="['/settings']" class="menu-link">
+                            <i class="menu-icon fas fa-cog"></i>
+                            <span class="menu-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</aside>

@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <div class="page">
+    <header class="page-cover">
+      <div class="text-center">
+        <a class="user-avatar user-avatar-xl">
+          <i class="fas fa-building"></i>
+        </a>
+        <h2 class="h4 my-2 mb-0">Test Company</h2>
+        <p class="text-muted">Project Manager</p>
+        <button type="button" class="btn btn-link">Upload Logo</button>
+      </div>
+    </header>
+    <nav class="page-navs">
+      <div class="nav-scroller">
+        <div class="nav nav-center nav-tabs">
+          <a class="nav-link" [routerLink]="['/settings/profile']" routerLinkActive="active">Profile</a>
+          <a class="nav-link" [routerLink]="['/settings/contacts']" routerLinkActive="active">Contacts</a>
+          <a class="nav-link" [routerLink]="['/settings/campaigns']" routerLinkActive="active">Campaigns</a>
+          <a class="nav-link" [routerLink]="['/settings/email']" routerLinkActive="active">Email</a>
+          <a class="nav-link" [routerLink]="['/settings/billing']" routerLinkActive="active">Billing</a>
+        </div>
+      </div>
+    </nav>
+    <div class="page-inner">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

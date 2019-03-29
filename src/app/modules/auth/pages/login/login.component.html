@@ -1,0 +1,38 @@
+<main class="auth">
+  <header id="auth-header" class="auth-header">
+    <h1>Lift N Shift</h1>
+    <p>
+      Don't have an account?
+      <a [routerLink]="['/auth/signup']">Create One</a>
+    </p>
+  </header>
+  <form [formGroup]="loginForm" (submit)="login()" class="auth-form">
+    <div [hidden]="!authError" class="alert alert-danger">{{ authError }}</div>
+    <div class="form-group">
+      <div class="form-label-group">
+        <input type="text" id="lnsEmail" formControlName="email" class="form-control placeholder-shown" placeholder="Email" autocomplete="email" autofocus>
+        <small id="emailHelp" [hidden]="!loginForm.controls['email'].touched || loginForm.controls['email'].valid" class="form-text text-danger">A valid email address is required</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="password" id="lnsPassword" formControlName="password" class="form-control placeholder-shown" placeholder="Password" autocomplete="current-password">
+      <small id="passwordHelp" [hidden]="!loginForm.controls['password'].touched || loginForm.controls['password'].valid" class="form-text text-danger">A password is required</small>
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="!loginForm.valid" class="btn btn-lg btn-primary btn-block" type="submit">
+        <span [hidden]="isAuthenticating">Sign In</span>
+        <span [hidden]="!isAuthenticating" class="spinner-border spinner-border-sm mx-2" role="status" aria-hidden="true"></span> 
+        <span [hidden]="!isAuthenticating">Loading...</span>
+      </button>
+    </div>
+    <div class="form-group text-center">
+      <div class="custom-control custom-control-inline custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="remember-me">
+        <label class="custom-control-label" for="remember-me">Keep me signed in</label>
+      </div>
+    </div>
+    <div class="text-center pt-3">
+      <a [routerLink]="['/auth/forgot']" class="link">Forgot Password?</a>
+    </div>
+  </form>
+</main>

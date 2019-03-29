@@ -1,0 +1,201 @@
+<div class="wrapper">
+  <div class="page">
+    <div class="page-inner">
+      <div class="page-section">
+        <div class="section-block">
+          <div class="metric-row">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card-metric">
+                <div class="metric">
+                  <p class="metric-value h3">
+                    <sub>
+                      <i class="fas fa-address-book fa-2x m-1"></i>
+                    </sub>
+                    <span class="value">126</span>
+                  </p>
+                  <h2 class="metric-label">Contacts</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card-metric">
+                <div class="metric">
+                  <p class="metric-value h3">
+                    <sub>
+                      <i class="fas fa-project-diagram fa-2x m-1"></i>
+                    </sub>
+                    <span class="value">126</span>
+                  </p>
+                  <h2 class="metric-label">Campaigns</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card-metric">
+                <div class="metric">
+                  <p class="metric-value h3">
+                    <sub>
+                      <i class="fas fa-comment-dots fa-2x m-1"></i>
+                    </sub>
+                    <span class="value">126</span>
+                  </p>
+                  <h2 class="metric-label">Conversations</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="card-metric">
+                <div class="metric">
+                  <p class="metric-value h3">
+                    <sub>
+                      <i class="fas fa-comments-dollar fa-2x m-1"></i>
+                    </sub>
+                    <span class="value">126</span>
+                  </p>
+                  <h2 class="metric-label">Reviews</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <h1 class="section-title mb-0">Analytics</h1>
+            <div dropdown [autoClose]="false" class="dropdown">
+              <button dropdownToggle class="btn btn-secondary">
+                <span>This Month</span>
+                <i class="fas fa-fw fa-caret-down"></i>
+              </button>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown-menu-md stop-propagation">
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" value="0">
+                  <label class="custom-control-label d-flex justify-content-between">
+                    <span>Today</span>
+                    <span class="text-muted">May 26</span>
+                  </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" value="0">
+                  <label class="custom-control-label d-flex justify-content-between">
+                    <span>Yesterday</span>
+                    <span class="text-muted">May 25</span>
+                  </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" value="0">
+                  <label class="custom-control-label d-flex justify-content-between">
+                    <span>This Week</span>
+                    <span class="text-muted">May 21-27</span>
+                  </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" value="0">
+                  <label class="custom-control-label d-flex justify-content-between">
+                    <span>This Month</span>
+                    <span class="text-muted">May 1-31</span>
+                  </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" value="0">
+                  <label class="custom-control-label d-flex justify-content-between">
+                    <span>This Year</span>
+                    <span class="text-muted">2019</span>
+                  </label>
+                </div>
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" value="0">
+                  <label class="custom-control-label">Custom</label>
+                  <div class="custom-control-hint my-1">
+                    <input type="text" class="form-control" bsDaterangePicker>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-8">
+            <div class="card card-body card-fluid">
+              <ul class="list-inline small">
+                <li class="list-inline-item">
+                  <i class="fas fa-circle text-primary"></i>
+                  Active Campaigns
+                </li>
+                <li class="list-inline-item">
+                  <i class="fas fa-circle text-success"></i>
+                  Completed Campaigns
+                </li>
+              </ul>
+              <div></div>
+            </div>
+          </div>
+          <div class="col-xl-4">
+            <div class="card card-fluid">
+              <div class="card-header">
+                Overview
+              </div>
+              <div class="card-body">
+                <dl class="d-flex justify-content-between">
+                  <dt class="text-left">
+                    <span class="mr-2">Replies</span>
+                    <small class="text-success">
+                      <i class="fas fa-caret-up"></i>
+                      87%
+                    </small>
+                  </dt>
+                  <dd class="text-right mb-0">
+                    <strong>156</strong>
+                    <small class="text-muted"></small>
+                  </dd>
+                </dl>
+                <dl class="d-flex justify-content-between mb-0">
+                  <dt class="text-left">
+                    <span class="mr-2">Campaigns</span>
+                  </dt>
+                  <dd class="text-right mb-0">
+                    <strong>3</strong>
+                  </dd>
+                </dl>
+              </div>
+              <div class="card-body border-top">
+                <dl class="d-flex justify-content-between">
+                  <dt class="text-left">
+                    <span class="mr-2">Reviews</span>
+                    <small class="text-success">
+                      <i class="fas fa-caret-up"></i>
+                      12%
+                    </small>
+                  </dt>
+                  <dd class="text-right mb-0">
+                    <strong>36</strong>
+                    <small class="text-muted"></small>
+                  </dd>
+                </dl>
+              </div>
+              <div class="card-body border-top">
+                <div class="summary">
+                  <p class="text-left">
+                    <strong class="mr-2">Engagements</strong>
+                    <small class="text-success">
+                      <i class="fas fa-caret-up"></i>
+                    </small>
+                  </p>
+                  <p class="text-center">
+                    <strong class="h3">243</strong>
+                    <span class="text-muted"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-6">
+
+          </div>
+          <div class="col-xl-6">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
