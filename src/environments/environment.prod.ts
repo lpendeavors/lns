@@ -7,5 +7,6 @@ export const environment = {
     projectId: "liftnshift-2686f",
     storageBucket: "liftnshift-2686f.appspot.com",
     messagingSenderId: "926488515609"
-  }
+  },
+  api_url: 'https://us-central1-liftnshift-2686f.cloudfunctions.net'
 };

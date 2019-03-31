@@ -8,6 +8,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
 import { environment } from 'src/environments/environment';
 
@@ -28,9 +29,17 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     AngularFireStorageModule,
+    AngularFireFunctionsModule,
     ModalModule.forRoot()
   ],
-  declarations: [AddEditContactComponent, AddEditGroupComponent, AddEditSegmentComponent, AddEditContactFieldComponent, TermsOfUseComponent, PrivacyPolicyComponent],
+  declarations: [
+    AddEditContactComponent, 
+    AddEditGroupComponent, 
+    AddEditSegmentComponent, 
+    AddEditContactFieldComponent, 
+    TermsOfUseComponent, 
+    PrivacyPolicyComponent
+  ],
   providers: [
     { provide: FirestoreSettingsToken, useValue: {} }
   ],

@@ -3,5 +3,5 @@ export interface Contact {
     lastName?: string;
     email?: string;
     phone?: string;
-    whatsApp: string;
+    whatsApp?: string;
 }

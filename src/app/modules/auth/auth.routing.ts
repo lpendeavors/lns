@@ -4,6 +4,7 @@ import { Routes, RouterModule, Router } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { SmsVerifyComponent } from './pages/sms-verify/sms-verify.component';
 
 const routes: Routes = [
     {
@@ -25,6 +26,10 @@ const routes: Routes = [
             {
                 path: 'forgot',
                 component: ForgotPasswordComponent
+            },
+            {
+                path:'verify',
+                component: SmsVerifyComponent
             }
         ]
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService, UserService, Company, CompanyService } from 'src/app/core';
 
 @Component({
   selector: 'lns-signup',
@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
   isAuthenticating: boolean;
   authError: string;
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private user: UserService, private company: CompanyService, private router: Router) { }
 
   get passwordsMatch(): boolean {
     return this.signupForm.value['password'] === this.signupForm.value['passwordConfirm'];
@@ -34,9 +34,15 @@ export class SignupComponent implements OnInit {
     this.authError = null;
     this.isAuthenticating = true;
     this.auth.signup(this.signupForm.value["email"], this.signupForm.value["password"])
-      .then(user => {
-        // Create new company
-        this.router.navigate(['/dashboard']);
+      .then(response => {
+        const company: Company = {
+          id: "",
+          name: this.signupForm.value["company"],
+          users: [response.user.uid],
+          admin: response.user.uid
+        };
+        this.company.saveCompany(company);
+        this.router.navigate(['/auth/verify']);
       })
       .catch(err => {
         this.authError = err.message;

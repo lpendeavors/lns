@@ -27,7 +27,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.isAuthenticating = true;
     this.authError = null;
     this.auth.resetPassword(this.passwordResetForm.value["email"])
-      .then(response => {
+      .then(() => {
         this.isAuthenticating = false;
         this.emailWasSent = true;
         this.passwordResetForm.reset();

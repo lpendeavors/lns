@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './pages/login/login.component';
 import { SharedModule } from '../../shared';
 import { AuthRoutingModule } from './auth.routing';
+
 import { SignupComponent } from './pages/signup/signup.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
+import { SmsVerifyComponent } from './pages/sms-verify/sms-verify.component';
 
 @NgModule({
   imports: [
@@ -12,6 +14,11 @@ import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password
     AuthRoutingModule,
     SharedModule
   ],
-  declarations: [LoginComponent, SignupComponent, ForgotPasswordComponent]
+  declarations: [
+    LoginComponent, 
+    SignupComponent, 
+    ForgotPasswordComponent, 
+    SmsVerifyComponent
+  ]
 })
 export class AuthModule { }

@@ -1,0 +1,41 @@
+<main class="auth">
+  <form [formGroup]="smsVerifyForm" class="auth-form auth-form-reflow">
+    <div class="text-center mb-4">
+      <div class="mb-4">
+
+      </div>
+      <h1 class="h3">Verify yourself</h1>
+    </div>
+    <p class="mb-4 text-center">Tempora iusto officia magnam fugiat sequi aliquam cum consectetur aperiam beatae, rerum.</p>
+    <div [hidden]="!smsWasSent || authError || isAuthenticating" class="alert alert-success">
+      Verification SMS Sent
+    </div>
+    <div [hidden]="!authError" class="alert alert-danger">
+      {{ authError }}
+    </div>
+    <div [hidden]="smsWasSent" class="form-group mb-4">
+      <input type="tel" formControlName="phone" id="lnsPhone" class="form-control form-control-lg" placeholder="##########" autocomplete="tel" autofocus>
+      <p class="text-muted">
+        <small>We'll send a code to your phone to verify you're human.</small>
+      </p>
+    </div>
+    <div [hidden]="!smsWasSent" class="form-group mb-4">
+      <input type="text" formControlName="verificationCode" id="insCode" class="form-control form-control-lg" placeholder="####">
+      <p class="text-muted">
+        <small>Enter the code as shown on your device.</small>
+      </p>
+    </div>
+    <div class="d-block d-md-inline-block mb-2">
+      <button (click)="sendVerification()" [hidden]="smsWasSent" [disabled]="!smsVerifyForm.valid || isAuthenticating" class="btn btn-lg btn-block btn-primary" type="submit">
+        <span [hidden]="isAuthenticating">Send Code</span>
+        <span [hidden]="!isAuthenticating" class="spinner-border spinner-border-sm mx-2" role="status" aria-hidden="true"></span> 
+        <span [hidden]="!isAuthenticating">Loading...</span>
+      </button>
+      <button (click)="verifyCode()" [hidden]="!smsWasSent" [disabled]="isAuthenticating" class="btn btn-lg btn-block btn-primary">
+        <span [hidden]="isAuthenticating">Submit</span>
+        <span [hidden]="!isAuthenticating" class="spinner-border spinner-border-sm mx-2" role="status" aria-hidden="true"></span> 
+        <span [hidden]="!isAuthenticating">Loading...</span>
+      </button>
+    </div>
+  </form>
+</main>
