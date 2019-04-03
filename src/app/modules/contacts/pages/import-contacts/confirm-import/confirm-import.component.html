@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of contacts">
+      <td>{{ contact.firstName }}</td>
+      <td>{{ contact.lastName }}</td>
+      <td>{{ contact.phone }}</td>
+      <td>{{ contact.email }}</td>
+    </tr>
+  </tbody>
+</table>
+<hr class="mt-5">
+<div class="d-flex">
+  <p>
+    <button type="button" (click)="back()" class="next btn btn-secondary ml-auto">Previous</button>
+  </p>
+  <button type="button" (click)="confirmContacts()" class="next btn btn-success ml-auto">Finished</button>
+</div>

@@ -10,6 +10,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
+import { DragulaModule } from 'ng2-dragula';
+
 import { environment } from 'src/environments/environment';
 
 import { AddEditContactComponent } from './components/add-edit-contact/add-edit-contact.component';
@@ -18,6 +20,10 @@ import { AddEditSegmentComponent } from './components/add-edit-segment/add-edit-
 import { AddEditContactFieldComponent } from './components/add-edit-contact-field/add-edit-contact-field.component';
 import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { AddEditProfileComponent } from './components/add-edit-profile/add-edit-profile.component';
+import { GeneralInfoModalComponent } from './components/general-info-modal/general-info-modal.component';
+
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   imports: [
@@ -30,7 +36,8 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireFunctionsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    DragulaModule.forRoot()
   ],
   declarations: [
     AddEditContactComponent, 
@@ -38,7 +45,10 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
     AddEditSegmentComponent, 
     AddEditContactFieldComponent, 
     TermsOfUseComponent, 
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent, 
+    AddEditProfileComponent, 
+    GeneralInfoModalComponent,
+    SearchPipe
   ],
   providers: [
     { provide: FirestoreSettingsToken, useValue: {} }
@@ -52,11 +62,17 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
     AngularFirestoreModule,
     AngularFireStorageModule,
     AddEditContactComponent,
-    AddEditContactFieldComponent
+    AddEditContactFieldComponent,
+    TermsOfUseComponent, 
+    PrivacyPolicyComponent, 
+    AddEditProfileComponent, 
+    GeneralInfoModalComponent,
+    SearchPipe
   ],
   entryComponents: [
     AddEditContactComponent,
-    AddEditContactFieldComponent
+    AddEditContactFieldComponent,
+    AddEditProfileComponent
   ]
 })
 export class SharedModule { }

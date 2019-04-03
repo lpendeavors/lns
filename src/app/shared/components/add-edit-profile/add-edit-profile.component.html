@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">User Profile</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="profileForm">
+    <div class="form-row mb-2">
+      <div class="col">
+        <input formControlName="firstName" type="text" class="form-control" placeholder="First">
+        <small [hidden]="!profileForm.controls['firstName'].touched || profileForm.controls['firstName'].valid" class="text-danger">First name is required</small>
+      </div>
+      <div class="col">
+        <input formControlName="lastName" type="text" class="form-control" placeholder="Last">
+        <small [hidden]="!profileForm.controls['lastName'].touched || profileForm.controls['lastName'].valid" class="text-danger">Last name is required</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <input formControlName="position" type="text" class="form-control" placeholder="Position">
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-lg btn-primary" [disabled]="!profileForm.valid" (click)="saveUserProfile()">Save</button>
+</div>

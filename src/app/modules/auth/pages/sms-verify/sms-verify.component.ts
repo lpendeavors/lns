@@ -17,6 +17,7 @@ export class SmsVerifyComponent implements OnInit, OnDestroy {
   isAuthenticating: boolean;
   smsWasSent: boolean;
 
+  currentUserSubscription: Subscription;
   sendSMSSubscription: Subscription;
   verifySMSSubscription: Subscription;
 
@@ -30,6 +31,9 @@ export class SmsVerifyComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    if (this.currentUserSubscription) {
+      this.currentUserSubscription.unsubscribe();
+    }
     if (this.sendSMSSubscription) {
       this.sendSMSSubscription.unsubscribe();
     }
@@ -42,7 +46,7 @@ export class SmsVerifyComponent implements OnInit, OnDestroy {
     this.authError = null;
     this.isAuthenticating = true;
     if (this.smsVerifyForm.valid){
-      this.sendSMSSubscription = this.sms.sendVerificationSMS(this.smsVerifyForm.value["phone"], this.auth.currentUser.uid)
+      this.sendSMSSubscription = this.sms.sendVerificationSMS(this.smsVerifyForm.value["phone"], "234")
       .subscribe(sent => {
         this.smsWasSent = true;
         this.isAuthenticating = false;
@@ -55,7 +59,7 @@ export class SmsVerifyComponent implements OnInit, OnDestroy {
     this.authError = null;
     this.isAuthenticating = true;
     if (this.smsVerifyForm.value['verificationCode'].length > 0) {
-      this.verifySMSSubscription = this.sms.verifySMSCode(this.smsVerifyForm.value['verificationCode'], this.auth.currentUser.uid)
+      this.verifySMSSubscription = this.sms.verifySMSCode(this.smsVerifyForm.value['verificationCode'], "4353")
       .subscribe(verified => {
         if (verified) {
           this.router.navigate(['/dashboard']);

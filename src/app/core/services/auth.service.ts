@@ -2,19 +2,29 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  public currentUser: firebase.User;
-
-  constructor(private afAuth: AngularFireAuth, private router: Router) {
-    this.afAuth.authState.subscribe(user => this.currentUser = user);
-  }
+  constructor(private afAuth: AngularFireAuth, private router: Router) { }
 
   get authenticated(): boolean {
     return this.afAuth.authState != null;
+  }
+
+  get userId(): Observable<string> {
+    return this.afAuth.user.pipe(map(user => user.uid));
+  }
+
+  userCompany() {
+    this.afAuth.user.subscribe(u => {
+      u.getIdTokenResult()
+        .then(t => console.log(t));
+    });
   }
 
   signup(email: string, password: string) {
@@ -25,11 +35,11 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
-  logout() {
+  logout(): Promise<boolean> {
     return this.afAuth.auth.signOut().then(() => this.router.navigate(['/login']));
   }
 
-  resetPassword(email: string) {
+  resetPassword(email: string): Promise<void> {
     return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 

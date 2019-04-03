@@ -8,7 +8,7 @@
             <button type="button" (click)="addContact()" class="btn btn-sm btn-link">
               <i class="fas fa-plus"></i> Add
             </button>&nbsp;
-            <button type="button" class="btn btn-sm btn-link">
+            <button type="button" (click)="importContacts()" class="btn btn-sm btn-link">
               <i class="fas fa-file-import"></i> Import
             </button>&nbsp;
             <button type="button" class="btn btn-link">
@@ -38,7 +38,7 @@
                       <i class="fas fa-search"></i>
                     </span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" [(ngModel)]="searchText" (input)="filterContacts()" class="form-control" placeholder="Search">
                 </div>
               </div>
               <div class="col-auto d-none d-sm-flex">
@@ -79,7 +79,7 @@
           </div>
           <div class="tab-content">
             <div class="list-group list-group-flush list-group-divider">
-              <div class="list-group-item">
+              <div *ngFor="let contact of filteredContacts" class="list-group-item">
                 <div class="list-group-item-figure">
                   <a class="user-avatar user-avatar-md  d-none d-sm-block">
                     <i class="fas fa-address-card"></i>
@@ -88,7 +88,7 @@
                 <div class="list-group-item-body">
                   <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
                     <div class="team">
-                      <h4 class="list-group-item-title">Lift Shifter</h4>
+                      <h4 class="list-group-item-title">{{ contact.firstName }} {{ contact.lastName }}</h4>
                       <p class="list-group-item-text">Messaged 1 hour ago</p>
                     </div>
                     <ul class="list-inline text-muted mb-0">
@@ -99,18 +99,18 @@
                   </div>
                 </div>
                 <div class="list-group-item-figure">
-                  <a class="btn btn-sm btn-icon btn-link stop-propagation d-none d-sm-block">
+                  <button (click)="sendSMS(contact)" class="btn btn-sm btn-icon btn-link stop-propagation d-none d-sm-block">
                     <i class="fas fa-sms"></i>
-                  </a>
-                  <a class="btn btn-sm btn-icon btn-link stop-propagation d-none d-sm-block">
+                  </button>
+                  <button (click)="sendEmail(contact)" class="btn btn-sm btn-icon btn-link stop-propagation d-none d-sm-block">
                     <i class="fas fa-envelope"></i>
-                  </a>
-                  <a class="btn btn-sm btn-icon btn-link stop-propagation d-none d-sm-block">
+                  </button>
+                  <button (click)="editContact(contact)" class="btn btn-sm btn-icon btn-link stop-propagation d-none d-sm-block">
                     <i class="fas fa-edit"></i>
-                  </a>
-                  <a class="btn btn-sm btn-icon btn-link stop-propagation d-block d-sm-none">
+                  </button>
+                  <button class="btn btn-sm btn-icon btn-link stop-propagation d-block d-sm-none">
                     <i class="fas fa-ellipsis-v"></i>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

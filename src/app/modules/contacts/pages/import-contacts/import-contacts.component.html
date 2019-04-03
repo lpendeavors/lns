@@ -1,3 +1,53 @@
-<p>
-  import-contacts works!
-</p>
+<div class="wrapper">
+  <div class="page">
+    <div class="page-inner">
+      <header class="page-title-bar">
+        <h1 class="page-title">Import Contacts</h1>
+        <p class="text-muted">Lacus laoreet non curabitur gravida arcu ac tortor dignissim convallis.</p>
+      </header>
+      <div class="page-section">
+        <div class="section-block">
+          <div id="stepper" class="bs-stepper">
+            <div class="card">
+              <div class="card-header">
+                <div class="steps steps-">
+                  <ul>
+                    <li class="step active">
+                      <a class="step-trigger">
+                        <span class="step-indicator step-indicator-icon">
+                          <i class="fas fa-users"></i>
+                        </span>
+                        <span class="d-none d-sm-inline px-2">Import</span>
+                      </a>
+                    </li>
+                    <li class="step" [ngClass]="{ 'active': !contactsImportShowing }">
+                      <a class="step-trigger">
+                        <span class="step-indicator step-indicator-icon">
+                          <i class="fas fa-sticky-note"></i>
+                        </span>
+                        <span class="d-none d-sm-inline px-2">Organize</span>
+                      </a>
+                    </li>
+                    <li class="step" [ngClass]="{ 'active': contactsConfirmShowing }">
+                      <a class="step-trigger">
+                        <span class="step-indicator step-indicator-icon">
+                          <i class="fas fa-check"></i>
+                        </span>
+                        <span class="d-none d-sm-inline px-2">Confirm</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-body">
+                <lns-file-upload (finished)="nextWizardTab($event)" [hidden]="!contactsImportShowing"></lns-file-upload>
+                <lns-organize (goBack)="prevWizardTab($event)" (finished)="nextWizardTab($event)" [hidden]="!contactsOrganizeShowing"></lns-organize>
+                <lns-confirm-import (goBack)="prevWizardTab($event)" (finished)="finishAddingContacts($event)" [hidden]="!contactsConfirmShowing"></lns-confirm-import>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

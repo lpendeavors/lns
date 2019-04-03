@@ -9,8 +9,8 @@ export const routes: Routes = [
         path: '',
         children: [
             {
-                path: 'all',
-                component: AllContactsComponent
+                path: '',
+                component: AllContactsComponent,
             },
             {
                 path: 'import',

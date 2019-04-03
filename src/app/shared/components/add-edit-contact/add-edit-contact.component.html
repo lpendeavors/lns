@@ -1,12 +1,35 @@
 <div class="modal-header">
-  <h4 class="modal-title pull-left">{{ title }}</h4>
+  <h4 class="modal-title pull-left">Contact</h4>
   <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
-  
+  <form [formGroup]="contactForm">
+    <div class="form-row mb-3">
+      <div class="col">
+        <input type="text" formControlName="firstName" class="form-control" placeholder="First" autofocus>
+      </div>
+      <div class="col">
+        <input type="text" formControlName="lastName" class="form-control" placeholder="Last">
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="tel" formControlName="phone" class="form-control" placeholder="Phone">
+    </div>
+    <div class="form-group">
+      <input type="email" formControlName="email" class="form-control" placeholder="Email">
+    </div>
+    <div *ngIf="groups.length === 0" class="form-group">
+      <input type="text" formControlName="newGroupName" class="form-control" placeholder="Group">
+    </div>
+    <div *ngIf="groups.length > 0" class="form-group">
+      <select formControlName="group" class="form-control">
+        <option *ngFor="let group of groups" [ngValue]="group.id">{{ group.name }}</option>
+      </select>
+    </div>
+  </form>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-default" (click)="saveContact()">Save</button>
+  <button type="button" class="btn btn-lg btn-primary" [disabled]="!contactForm.valid" (click)="saveContact()">Save</button>
 </div>
