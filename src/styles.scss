@@ -669,6 +669,13 @@ img {
         background-color: transparent;
         border-color: #346cb0;
     }
+
+    &.flex-column {
+        .nav-link {
+            border-width: 0 0 0 3px;
+            border-radius: 0;
+        }
+    }
 }
 
 .btn-toolbar {
@@ -1363,6 +1370,10 @@ legend {
 .auth-footer {
     padding: 1rem;
     color: #888c9b;
+}
+
+.table th {
+    border-top: none;
 }
 
 @media (min-width: 768px) {

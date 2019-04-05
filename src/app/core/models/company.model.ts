@@ -6,4 +6,12 @@ export class Company {
     users: string[];
     admin: string;
     contactGroups?: Contact[];
+    customFields?: CustomContactField[]
+}
+
+export interface CustomContactField {
+    id: string;
+    name: string;
+    type: string;
+    required: boolean;
 }

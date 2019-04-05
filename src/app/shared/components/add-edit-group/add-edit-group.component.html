@@ -7,10 +7,10 @@
   <div class="modal-body">
     <form [formGroup]="groupForm">
       <div class="form-group">
-        <input type="text" formControlName="name" class="form-control" placeholder="Grpup name">
+        <input type="text" formControlName="name" class="form-control" placeholder="Group name">
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-lg btn-primary" (click)="saveGroup()">Save</button>
+    <button [disabled]="!groupForm.valid" type="button" class="btn btn-lg btn-primary" (click)="saveGroup()">Save</button>
   </div>

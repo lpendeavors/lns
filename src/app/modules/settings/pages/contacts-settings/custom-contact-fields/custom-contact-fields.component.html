@@ -1,0 +1,26 @@
+<div class="card card-fluid">
+  <h6 class="card-header">
+    Custom Fields
+    <i (click)="addField()" class="fas fa-plus text-primary" style="float: right;"></i>
+  </h6>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover table-borderless">
+        <thead class="thead-">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let field of customFields">
+            <td>{{ field.name }}</td>
+            <td>{{ field.type }}</td>
+            <td>{{ field.required }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

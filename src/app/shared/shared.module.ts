@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
@@ -37,6 +39,7 @@ import { SearchPipe } from './pipes/search.pipe';
     AngularFireStorageModule,
     AngularFireFunctionsModule,
     ModalModule.forRoot(),
+    PaginationModule.forRoot(),
     DragulaModule.forRoot()
   ],
   declarations: [
@@ -72,7 +75,9 @@ import { SearchPipe } from './pipes/search.pipe';
   entryComponents: [
     AddEditContactComponent,
     AddEditContactFieldComponent,
-    AddEditProfileComponent
+    AddEditProfileComponent,
+    AddEditGroupComponent,
+    AddEditSegmentComponent
   ]
 })
 export class SharedModule { }

@@ -10,6 +10,10 @@ import { GroupService, Group } from 'src/app/core';
 })
 export class AddEditGroupComponent implements OnInit {
 
+  private groupToEdit: Group;
+  private addGroup: boolean;
+  private editGroup: boolean;
+
   groupForm: FormGroup;
   groupError: string;
 
@@ -17,14 +21,22 @@ export class AddEditGroupComponent implements OnInit {
 
   ngOnInit() {
     this.groupForm = new FormGroup({
-      name: new FormControl('', Validators.required)
+      id: new FormControl(this.editGroup ? this.groupToEdit.id : "new", Validators.required),
+      name: new FormControl(this.groupToEdit.name, Validators.required)
     });
   }
 
   saveGroup(): void {
-    this.group.create({ id: "", name: this.groupForm.value['name'] })
-      .then(() => this.bsModalRef.hide())
-      .catch(err => this.groupError = err);
+    this.groupError = null;
+    if (this.editGroup) {
+      this.group.save(this.groupForm.value)
+        .then(() => this.bsModalRef.hide())
+        .catch(err => this.groupError = err);
+    } else if (this.addGroup) {
+      this.group.create(this.groupForm.value)
+        .then(() => this.bsModalRef.hide())
+        .catch(err => this.groupError = err);
+    }
   }
 
 }

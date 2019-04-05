@@ -6,4 +6,11 @@ export interface Contact {
     phone?: string;
     whatsApp?: string;
     group: string;
+    customFields?: CustomField[];
+}
+
+export interface CustomField {
+    id: string;
+    name: string;
+    value: any;
 }

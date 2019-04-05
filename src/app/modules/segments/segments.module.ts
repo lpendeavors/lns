@@ -3,11 +3,13 @@ import { SharedModule } from 'src/app/shared';
 import { SegmentsRoutingModule } from './segments.routing';
 
 import { SegmentsComponent } from './pages/segments.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   imports: [
     SharedModule,
-    SegmentsRoutingModule
+    SegmentsRoutingModule,
+    PaginationModule.forRoot()
   ],
   declarations: [SegmentsComponent]
 })

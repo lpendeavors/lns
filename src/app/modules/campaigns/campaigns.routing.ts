@@ -9,7 +9,7 @@ export const routes: Routes = [
         path: '',
         children: [
             {
-                path: 'all',
+                path: '',
                 component: AllCampaignsComponent
             },
             {

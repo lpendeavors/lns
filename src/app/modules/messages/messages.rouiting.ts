@@ -7,7 +7,7 @@ export const routes: Routes = [
         path: '',
         children: [
             {
-                path: 'home',
+                path: '',
                 component: MessagesComponent
             }
         ]

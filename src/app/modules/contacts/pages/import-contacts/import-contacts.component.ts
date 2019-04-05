@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Contact, ContactService, ContactImportService } from 'src/app/core';
-import { Subscription, of } from 'rxjs';
+import { Contact, ContactService, ContactImportService, GroupService } from 'src/app/core';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,14 +18,18 @@ export class ImportContactsComponent implements OnInit, OnDestroy {
 
   private newContactsSubscription: Subscription;
   private newContactListSubscription: Subscription;
+  private newGroupNameSubscription: Subscription;
 
+  private newGroupName: string;
   private newContactList: Contact[];
 
-  constructor(private contact: ContactService, private router: Router, private contactImport: ContactImportService) { }
+  constructor(private contact: ContactService, private router: Router, private contactImport: ContactImportService,
+    private group: GroupService) { }
 
   ngOnInit() {
     this.contactsImportShowing = true;
     this.newContactListSubscription = this.contactImport.newContactList.subscribe(list => this.newContactList = list);
+    this.newGroupNameSubscription = this.contactImport.newGroupName.subscribe(name => this.newGroupName = name);
   }
 
   ngOnDestroy() {
@@ -34,6 +38,9 @@ export class ImportContactsComponent implements OnInit, OnDestroy {
     }
     if (this.newContactListSubscription) {
       this.newContactListSubscription.unsubscribe();
+    }
+    if (this.newGroupNameSubscription) {
+      this.newGroupNameSubscription.unsubscribe();
     }
   }
 
@@ -58,7 +65,16 @@ export class ImportContactsComponent implements OnInit, OnDestroy {
   }
 
   finishAddingContacts($event): void {
-    console.log(this.newContactList);
+    this.group.create({
+      id: "",
+      name: this.newGroupName
+    })
+    .then(group => {
+      this.newContactList.forEach(contact => {
+        contact.group = group.id;
+        this.contact.create(contact);
+      });
+    });
   }
 
 }

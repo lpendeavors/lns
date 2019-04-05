@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SettingsComponent } from './pages/settings.component';
 import { ContactsSettingsComponent } from './pages/contacts-settings/contacts-settings.component';
+import { CustomContactFieldsComponent } from './pages/contacts-settings/custom-contact-fields/custom-contact-fields.component';
 import { CampaignsSettingsComponent } from './pages/campaigns-settings/campaigns-settings.component';
 import { EmailSettingsComponent } from './pages/email-settings/email-settings.component';
 import { ReviewsSettingsComponent } from './pages/reviews-settings/reviews-settings.component';
@@ -22,7 +23,17 @@ export const routes: Routes = [
                     },
                     {
                         path: 'contacts',
-                        component: ContactsSettingsComponent
+                        component: ContactsSettingsComponent,
+                        children: [
+                            {
+                                path: '',
+                                redirectTo: 'custom-fields'
+                            },
+                            {
+                                path: 'custom-fields',
+                                component: CustomContactFieldsComponent
+                            }
+                        ]
                     },
                     {
                         path: 'campaigns',

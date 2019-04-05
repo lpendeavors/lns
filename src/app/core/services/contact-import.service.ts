@@ -9,6 +9,7 @@ export class ContactImportService {
 
   importList = new Subject<string[][]>();
   newContactList = new Subject<Contact[]>();
+  newGroupName = new Subject<string>();
 
   constructor() { }
 }

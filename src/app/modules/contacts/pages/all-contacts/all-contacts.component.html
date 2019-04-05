@@ -44,29 +44,29 @@
               <div class="col-auto d-none d-sm-flex">
                 <div class="dropdown" dropdown>
                   <button dropdownToggle class="btn btn-sm btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Last Updated
+                    {{ currentSorting }}
                     <i class="fas fa-caret-down"></i>
                   </button>
                   <div *dropdownMenu class="dropdown-menu dropdown-menu-right stop-propagation">
                     <h6 class="dropdown-header">Sort By</h6>
                     <label class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" name="sortContactsBy" value="0">
-                      <span class="custom-control-label">Name</span>
+                      <input (change)="sortContacts('name')" type="radio" class="custom-control-input" name="sortContactsBy" value="0">
+                      <span class="custom-control-label">Name (Asc)</span>
                     </label>
                     <label class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" name="sortContactsBy" value="0">
+                      <input (change)="sortContacts('name-desc')" type="radio" class="custom-control-input" name="sortContactsBy" value="0">
                       <span class="custom-control-label">Name (Desc)</span>
                     </label>
                     <label class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" name="sortContactsBy" value="0" checked>
+                      <input (change)="sortContacts('updated')" type="radio" class="custom-control-input" name="sortContactsBy" value="0" checked>
                       <span class="custom-control-label">Last Updated</span>
                     </label>
                     <label class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" name="sortContactsBy" value="0">
+                      <input (change)="sortContacts('messaged')" type="radio" class="custom-control-input" name="sortContactsBy" value="0">
                       <span class="custom-control-label">Last Messaged</span>
                     </label>
                     <label class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" name="sortContactsBy" value="0">
+                      <input (change)="sortContacts('created')" type="radio" class="custom-control-input" name="sortContactsBy" value="0">
                       <span class="custom-control-label">Last Created</span>
                     </label>
                   </div>
@@ -79,7 +79,7 @@
           </div>
           <div class="tab-content">
             <div class="list-group list-group-flush list-group-divider">
-              <div *ngFor="let contact of filteredContacts" class="list-group-item">
+              <div *ngFor="let contact of pagedContacts" class="list-group-item">
                 <div class="list-group-item-figure">
                   <a class="user-avatar user-avatar-md  d-none d-sm-block">
                     <i class="fas fa-address-card"></i>
@@ -114,27 +114,16 @@
                 </div>
               </div>
             </div>
-            <ul class="pagination justify-content-center mt-4">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">
-                  <i class="fas fa-angle-double-left"></i>
-                </a>
-              </li>
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Prev</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item disabled">
-                <a class="page-link">Next</a>
-              </li>
-              <li class="page-item disabled">
-                <a class="page-link">
-                  <i class="fas fa-angle-double-right"></i>
-                </a>
-              </li>
-            </ul>
+            <div *ngIf="filteredContacts" class="d-block my-3">
+              <pagination class="justify-content-center" firstText="&laquo;" lastText="&raquo;"
+                [totalItems]="filteredContacts.length" 
+                [rotate]="paginationRotate" 
+                [maxSize]="maxSize"
+                [itemsPerPage]="pageSize"
+                [boundaryLinks]="true"
+                (pageChanged)="pageChanged($event.page)">
+              </pagination>
+            </div>
           </div>
         </div>
       </div>

@@ -6,3 +6,4 @@ export * from './sms.service';
 export * from './contact.service';
 export * from './group.service';
 export * from './contact-import.service';
+export * from './segment.service';

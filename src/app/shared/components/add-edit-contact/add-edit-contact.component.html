@@ -20,16 +20,23 @@
     <div class="form-group">
       <input type="email" formControlName="email" class="form-control" placeholder="Email">
     </div>
-    <div *ngIf="groups.length === 0" class="form-group">
-      <input type="text" formControlName="newGroupName" class="form-control" placeholder="Group">
-    </div>
-    <div *ngIf="groups.length > 0" class="form-group">
+    <div class="form-group">
       <select formControlName="group" class="form-control">
         <option *ngFor="let group of groups" [ngValue]="group.id">{{ group.name }}</option>
       </select>
+      <small [hidden]="groups.length > 0" class="text-danger">You do not have any groups. <a href="#">Create one</a></small>
     </div>
   </form>
+  <div *ngIf="hasCustomFields">
+    <h5 class="mb-3">Custom Fields</h5>
+    <form [formGroup]="customFieldsForm">
+      <div *ngFor="let field of customFields" class="form-group">
+        <label for={{field.id}}>{{ field.name }}</label>
+        <input type="{{field.type}}" formControlName="{{field.id}}" id="{{field.id}}" class="form-control">
+      </div>
+    </form>
+  </div>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-lg btn-primary" [disabled]="!contactForm.valid" (click)="saveContact()">Save</button>
+  <button type="button" class="btn btn-lg btn-primary" [disabled]="!allFormsValid" (click)="saveContact()">Save</button>
 </div>

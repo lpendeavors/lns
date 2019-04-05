@@ -40,13 +40,37 @@
           </select>
         </div>
       </div>
-    </div>
-    <hr class="mt-5">
-    <div class="d-flex">
-      <p class="text-muted">
-        <button type="button" (click)="back()" class="next btn btn-secondary ml-auto">Previous</button>
-      </p>
-      <button type="button" (click)="organizeContacts()" [disabled]="!organizeForm.valid" class="next btn btn-primary ml-auto">Next</button>
+      <div class="col-sm-6">
+        <div class="form-group pr-sm-3">
+          <label for="newContactGroup">Group</label>
+          <input formControlName="groupName" type="text" class="form-control" placeholder="Group name">
+        </div>
+      </div>
     </div>
   </fieldset>
 </form>
+<div *ngIf="hasCustomFields">
+  <form [formGroup]="customFieldsForm" class="p-lg-4 p-sm-3 p-0">
+    <fieldset>
+      <legend>Select your custom fields.</legend>
+      <div class="form-row mb-3">
+        <div *ngFor="let field of customFields" class="col-sm-6">
+          <div class="form-group pr-sm-3">
+            <label for={{field.id}}>{{ field.name }}</label>
+            <select formControlName="{{field.id}}" id="{{field.id}}" class="form-control">
+              <option value="">Select one</option>
+              <option *ngFor="let header of headers" [value]="header">{{ header }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<hr>
+<div class="d-flex">
+  <p class="text-muted">
+    <button type="button" (click)="back()" class="next btn btn-secondary ml-auto">Previous</button>
+  </p>
+  <button type="button" (click)="organizeContacts()" [disabled]="!organizeForm.valid" class="next btn btn-primary ml-auto">Next</button>
+</div>

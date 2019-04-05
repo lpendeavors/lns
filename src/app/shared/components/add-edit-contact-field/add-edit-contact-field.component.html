@@ -1,3 +1,32 @@
-<p>
-  add-edit-contact-field works!
-</p>
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Contact Field</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="contactFieldForm">
+    <div class="form-group">
+      <label for="fieldName">Name</label>
+      <input type="text" (input)="setIdField($event)" formControlName="name" id="fieldName" class="form-control" autofocus>
+    </div>
+    <div class="form-row mb-3">
+      <div class="col">
+        <label for="fieldType">Type</label>
+        <select formControlName="type" id="fieldType" class="form-control">
+          <option *ngFor="let type of fieldTypes" [ngValue]="type">{{ type }}</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="fieldRequired">Required</label>
+        <select formControlName="required" id="fieldRequired" class="form-control">
+          <option value="true">Yes</option>
+          <option valus="false">No</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-lg btn-primary" [disabled]="!contactFieldForm.valid" (click)="saveCustomField()">Save</button>
+</div>
