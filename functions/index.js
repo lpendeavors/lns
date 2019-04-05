@@ -3,6 +3,8 @@ const admin = require('firebase-admin');
 
 admin.initializeApp();
 const firestore = admin.firestore();
+const settings = { timestampInSnapshots: true };
+firestore.settings(settings);
 
 const smsEndpoints = require('./lib/sms');
 exports.sms = functions.https.onRequest(smsEndpoints);
@@ -21,9 +23,7 @@ exports.updateCompanyId = functions.firestore
         
     const userId = firestore.collection('users').doc(company.admin);
     console.log(`Settings custom claims for admin user: ${userId}`);
-    admin.auth().setCustomUserClaims(userId, { company: company.id, isCompanyAdmin: true })
-        .then(() => console.log(`Successfully update user claims for ${userId}`))
-        .catch(err => console.error(err));
+    return admin.auth().setCustomUserClaims(userId, { company: company.id, isCompanyAdmin: true });
 });
 
 exports.updateContactId = functions.firestore
@@ -34,9 +34,7 @@ exports.updateContactId = functions.firestore
 
     const contact = snap.data();
     contact.id = snap.id;
-    snap.ref.update(contact)
-        .then(() => console.log(`Contact id field updated successfully.`))
-        .catch(err => console.error(err));
+    return snap.ref.update(contact);
 });
 
 exports.updateGroupId = functions.firestore
@@ -47,9 +45,7 @@ exports.updateGroupId = functions.firestore
 
     const group = snap.data();
     group.id = snap.id;
-    snap.ref.update(group)
-        .then(() => console.log(`Group id field updated successfully.`))
-        .catch(err => console.error(err));
+    return snap.ref.update(group);
 }); 
 
 exports.updateSegmentId = functions.firestore
@@ -60,7 +56,5 @@ exports.updateSegmentId = functions.firestore
 
     const segment = snap.data();
     segment.id = snap.id;
-    snap.ref.update(segment)
-        .then(() => console.log(`Segment id field updated successfully.`))
-        .catch(err => console.error(err));
+    return snap.ref.update(segment);
 });

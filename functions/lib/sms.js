@@ -10,8 +10,6 @@ const express = require('express');
 const app = express();
 
 const firestore = admin.firestore();
-const settings = { timestampsInSnapshots: true };
-firestore.settings(settings);
 
 app.use(cors({ origin: true }));
 
