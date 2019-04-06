@@ -24,8 +24,8 @@ import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.comp
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { AddEditProfileComponent } from './components/add-edit-profile/add-edit-profile.component';
 import { GeneralInfoModalComponent } from './components/general-info-modal/general-info-modal.component';
-
-import { SearchPipe } from './pipes/search.pipe';
+import { TemplateFieldDirective } from './directives/template-field.directive';
+import { TemplateFieldListComponent } from './components/template-field-list/template-field-list.component';
 
 @NgModule({
   imports: [
@@ -41,6 +41,7 @@ import { SearchPipe } from './pipes/search.pipe';
     ModalModule.forRoot(),
     PaginationModule.forRoot(),
     DragulaModule.forRoot()
+
   ],
   declarations: [
     AddEditContactComponent, 
@@ -50,8 +51,9 @@ import { SearchPipe } from './pipes/search.pipe';
     TermsOfUseComponent, 
     PrivacyPolicyComponent, 
     AddEditProfileComponent, 
-    GeneralInfoModalComponent,
-    SearchPipe
+    GeneralInfoModalComponent, 
+    TemplateFieldDirective, 
+    TemplateFieldListComponent
   ],
   providers: [
     { provide: FirestoreSettingsToken, useValue: {} }
@@ -69,8 +71,9 @@ import { SearchPipe } from './pipes/search.pipe';
     TermsOfUseComponent, 
     PrivacyPolicyComponent, 
     AddEditProfileComponent, 
-    GeneralInfoModalComponent,
-    SearchPipe
+    GeneralInfoModalComponent, 
+    TemplateFieldDirective, 
+    TemplateFieldListComponent
   ],
   entryComponents: [
     AddEditContactComponent,

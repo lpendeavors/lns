@@ -40,23 +40,9 @@
                 </div>
               </div>
               <div class="card-body">
-                <form id="stepper-form" name="stepperForm" class="p-lg-4 p-sm-3 p-0">
-                  <div class="content active dstepper-block">
-                    <fieldset>
-                      <legend>Select the recipients of this message</legend>
-                      <div class="form-group mb-4">
-
-                      </div>
-                      <hr class="mt-5">
-                      <div class="d-flex">
-                        <p class="text-muted">
-                          
-                        </p>
-                        <button type="button" class="next btn btn-primary ml-auto">Next</button>
-                      </div>
-                    </fieldset>
-                  </div>
-                </form>
+                <lns-campaign-recipients [hidden]="!campaignRecipientsShowing"></lns-campaign-recipients>
+                <lns-campaign-message [hidden]="!campaignMessageShowing"></lns-campaign-message>
+                <lns-campaign-confirmation [hidden]="!campaignConfirmationShowing"></lns-campaign-confirmation>
               </div>
             </div>
           </div>

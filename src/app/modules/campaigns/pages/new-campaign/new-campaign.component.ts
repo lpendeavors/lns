@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewCampaignComponent implements OnInit {
 
+  campaignRecipientsShowing: boolean;
+  campaignMessageShowing: boolean;
+  campaignConfirmationShowing: boolean;
+
+  campaignError: string;
+
   constructor() { }
 
   ngOnInit() {
+    this.campaignRecipientsShowing = true;
   }
 
 }

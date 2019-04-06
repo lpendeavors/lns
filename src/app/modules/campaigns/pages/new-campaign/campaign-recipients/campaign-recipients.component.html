@@ -1,0 +1,45 @@
+<form id="stepper-form" name="stepperForm" class="p-lg-4 p-sm-3 p-0">
+  <div class="content active dstepper-block">
+    <fieldset>
+      <legend>Campaign name and recipients</legend>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Campaign name">
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card card-fluid">
+            <div class="card-header"><strong>Available</strong></div>
+            <ul class="sortable-lists list-group list-group-flush list-group-bordered" dragula="AVAILABLE">
+              <li *ngFor="let group of groups" class="list-group-item align-items-center drag-handle">
+                <span class="drag-indicator"></span>
+                <div>{{ group.name }}</div>
+              </li>
+              <li *ngFor="let segment of segments" class="list-group-item align-items-center drag-handle">
+                <span class="drag-indicator"></span>
+                <div>{{ segment.name }}</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card card-fluid">
+            <div class="card-header"><strong>Selected</strong></div>
+            <ul class="sortable-lists list-group list-group-flush list-group-bordered" dragula="SELECTED">
+              <li *ngFor="let selected of selection" class="list-group-item align-items-center drag-handle">
+                <span class="drag-indicator"></span>
+                <div>{{ selection.name }}</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <hr class="mt-5">
+    <div class="d-flex">
+      <p class="text-muted">
+        
+      </p>
+      <button type="button" class="next btn btn-primary ml-auto">Next</button>
+    </div>
+  </div>
+</form>

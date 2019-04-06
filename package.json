@@ -26,9 +26,12 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "firebase": "^5.9.1",
+    "jquery": "^3.3.1",
     "ng2-dragula": "^2.1.1",
     "ngx-bootstrap": "^3.2.0",
+    "ngx-summernote": "^0.6.2",
     "rxjs": "~6.2.0",
+    "summernote": "^0.8.11",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

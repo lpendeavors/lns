@@ -1,5 +1,4 @@
 const admin = require('firebase-admin');
-const functions = require('firebase-functions');
 const twilio = require('twilio');
 // const twilioVerifyKey = functions.config().twilioverify.key;
 const twilioVerifyKey = "YL34hgTarSz7O0fX6Wyy26X3D35gB70s";
